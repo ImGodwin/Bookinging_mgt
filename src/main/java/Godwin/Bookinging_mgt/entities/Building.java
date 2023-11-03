@@ -7,23 +7,18 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 @Entity
-@Table(name = "work_station")
+@Table(name = "building")
 @Getter
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class WorkStation {
+public class Building {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private long id;
-    private String description;
-    private Type type;
-    private long maxOccupants;
-
-
-
-
-
+    private String name;
+    private String address;
+    private String city; 
 }
