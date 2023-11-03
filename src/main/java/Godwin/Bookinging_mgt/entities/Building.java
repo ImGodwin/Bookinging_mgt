@@ -27,6 +27,7 @@ public class Building {
     @OneToMany(mappedBy = "building")
     private List<WorkStation> workStations;
 
+
     public void setName(String name) {
         this.name = name;
     }
