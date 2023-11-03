@@ -1,4 +1,4 @@
-package Godwin.Bookinging_mgt.dao;
+package Godwin.Bookinging_mgt.UserDao;
 
 import Godwin.Bookinging_mgt.entities.User;
 
