@@ -26,4 +26,11 @@ public class Reservations {
     private String email;
     private LocalTime reservationTime;
 
+    @ManyToOne
+    @JoinColumn(name = "workStation_id")
+    private WorkStation workStation;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
 }
