@@ -36,4 +36,27 @@ public class WorkStation {
     @JoinColumn(name = "user_id")
     private User user;
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setType(Type type) {
+        this.type = type;
+    }
+
+    public void setMaxOccupants(long maxOccupants) {
+        this.maxOccupants = maxOccupants;
+    }
+
+    public void setReservations(List<Reservations> reservations) {
+        this.reservations = reservations;
+    }
+
+    public void setBuilding(Building building) {
+        this.building = building;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

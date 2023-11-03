@@ -33,4 +33,28 @@ public class Reservations {
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setReservationTime(LocalTime reservationTime) {
+        this.reservationTime = reservationTime;
+    }
+
+    public void setWorkStation(WorkStation workStation) {
+        this.workStation = workStation;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

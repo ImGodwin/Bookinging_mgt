@@ -31,4 +31,23 @@ public class User {
     private List<WorkStation> workStations;
 
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setReservations(List<Reservations> reservations) {
+        this.reservations = reservations;
+    }
+
+    public void setWorkStations(List<WorkStation> workStations) {
+        this.workStations = workStations;
+    }
 }

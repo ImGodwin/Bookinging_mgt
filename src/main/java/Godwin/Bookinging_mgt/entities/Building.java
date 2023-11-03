@@ -24,7 +24,22 @@ public class Building {
     private String address;
     private String city;
 
-
     @OneToMany(mappedBy = "building")
     private List<WorkStation> workStations;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setWorkStations(List<WorkStation> workStations) {
+        this.workStations = workStations;
+    }
 }
