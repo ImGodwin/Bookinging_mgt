@@ -18,31 +18,42 @@ public class BuildingService implements IBuildingDAO{
     @Override
     public void save(Building building) {
 
-        if(building.getName().length() < 2) throw new RuntimeException("Il nome è troppo corto");
-        buildingRepo.save(building);
-        buildingRepo.save(building);
-        log.info(building + " saved successfully");
-
-
+        try {
+            if(building.getName().length() < 2) throw new RuntimeException("Il nome è troppo corto");
+            buildingRepo.save(building);
+            buildingRepo.save(building);
+            log.info(building + " saved successfully");
+        } catch (Exception ex){
+            System.err.println("Building not saved");
+        }
     }
 
     @Override
     public void findByIdAndUpdate(long id, Building building) {
         Building buildingFound = this.findById(id);
-        buildingFound.setName(building.getName());
-        buildingFound.setAddress(building.getAddress());
-        buildingFound.setCity(building.getCity());
 
-        buildingRepo.save(building);
-        log.info("This building: " + building + "has been updated and saved");
+        try {
+            buildingFound.setName(building.getName());
+            buildingFound.setAddress(building.getAddress());
+            buildingFound.setCity(building.getCity());
+
+            buildingRepo.save(building);
+            log.info("This building: " + building + "has been updated and saved");
+        } catch (Exception ex){
+            System.err.println("Item not found nor updated");
+        }
     }
 
     @Override
     public void findByIdAndDelete(long id) {
-        Building buildingToDelete = this.findById(id);
-        buildingRepo.delete(buildingToDelete);
+        try {
+            Building buildingToDelete = this.findById(id);
+            buildingRepo.delete(buildingToDelete);
 
-        System.out.println("Building " + buildingToDelete + " deleted");
+            System.out.println("Building " + buildingToDelete + " deleted");
+        } catch (Exception ex){
+            System.err.println("Item not deleted");
+        }
     }
 
     @Override

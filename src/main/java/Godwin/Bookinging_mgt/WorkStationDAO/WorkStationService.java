@@ -38,8 +38,6 @@ public class WorkStationService implements IWorkStationDAO{
         } catch (Exception ex){
             System.err.println("Item was not found nor updated");
         }
-
-
     }
 
     @Override
@@ -48,12 +46,10 @@ public class WorkStationService implements IWorkStationDAO{
         try {
             WorkStation workStation = this.findById(id);
             workRepo.delete(workStation);
-
             System.out.println(workStation + " deleted from the database");
         }catch (Exception ex){
             System.err.println("Item not deleted from the database");
         }
-
     }
 
     @Override

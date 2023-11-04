@@ -18,29 +18,41 @@ public class UsersService implements IUserDAO{
     private UsersRepository usersRep;
     @Override
     public void save(User user) {
-        if(user.getName().length() < 2 ) throw new RuntimeException("Name must be above 2 characters");
-        usersRep.save(user);
-        System.out.println(" saved");
+
+        try {
+            if(user.getName().length() < 2 ) throw new RuntimeException("Name must be above 2 characters");
+            usersRep.save(user);
+            System.out.println(" saved");
+        } catch (Exception ex){
+            System.err.println("User not saved");
+        }
     }
 
     @Override
     public void findByIdAndUpdate(long id, @NotNull User user) {
         User found = this.findById(id);
-        found.setName(user.getName());
-        found.setSurname(user.getName());
-        found.setEmail(user.getEmail());
 
-        usersRep.save(found);
-        log.info(id +" saved appropriately");
+        try {
+            found.setName(user.getName());
+            found.setSurname(user.getName());
+            found.setEmail(user.getEmail());
+            usersRep.save(found);
+            log.info(id +" saved appropriately");
+        } catch (Exception ex){
+            System.err.println("Item not updated");
+        }
     }
 
     @Override
     public void findByIdAndDelete(long id) {
 
         User found = this.findById(id);
-        usersRep.delete(found);
-        log.info("this id: " + id + " has been successfully deleted");
-
+        try {
+            usersRep.delete(found);
+            log.info("this id: " + id + " has been successfully deleted");
+        } catch (Exception ex){
+            System.out.println("Item not deleted");
+        }
     }
 
     @Override

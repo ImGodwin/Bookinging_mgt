@@ -17,14 +17,12 @@ public class ReservationService implements IReservationDAO{
         }catch (Exception ex){
             System.err.println("Not Saved");
         }
-
     }
 
     @Override
     public void findByIdAndDelete(long id) {
 
         try {
-
         Reservations reservation = this.findById(id);
         reservationREPO.delete(reservation);
         } catch (Exception ex){
