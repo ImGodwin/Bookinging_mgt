@@ -20,6 +20,7 @@ public class WorkStationService implements IWorkStationDAO{
     public void save(WorkStation workStation) {
         try {
         workRepo.save(workStation);
+
         log.info(workStation + " saved successfully");
         } catch (Exception ex){
             System.out.println("Work Station not Saved");

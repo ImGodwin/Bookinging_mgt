@@ -29,7 +29,7 @@ public class UsersService implements IUserDAO{
     }
 
     @Override
-    public void findByIdAndUpdate(long id, @NotNull User user) {
+    public void findByIdAndUpdate(long id, @NotNull User user) throws Exception {
         User found = this.findById(id);
 
         try {
@@ -44,7 +44,7 @@ public class UsersService implements IUserDAO{
     }
 
     @Override
-    public void findByIdAndDelete(long id) {
+    public void findByIdAndDelete(long id) throws Exception {
 
         User found = this.findById(id);
         try {
@@ -56,8 +56,8 @@ public class UsersService implements IUserDAO{
     }
 
     @Override
-    public User findById(long id) {
-        return usersRep.findById(id).orElseThrow();
+    public User findById(long id) throws Exception {
+        return usersRep.findById(id).orElseThrow(() -> new Exception("User not found"));
     }
 
     @Override

@@ -8,9 +8,9 @@ public interface IUserDAO {
 
     public void save(User user);
 
-    public void findByIdAndUpdate(long id, User user);
-    public void findByIdAndDelete(long id);
-    public User findById(long id);
+    public void findByIdAndUpdate(long id, User user) throws Exception;
+    public void findByIdAndDelete(long id) throws Exception;
+    public User findById(long id) throws Exception;
     public List<User> findAll();
     public List<User> filterBySurname(String surname);
 

@@ -14,17 +14,14 @@ import java.time.LocalTime;
 @Getter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class Reservations {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private long id;
-    private String name;
-    private String surname;
-    private String email;
-    private LocalTime reservationTime;
+
+    private LocalDate reservationTime;
 
     @ManyToOne
     @JoinColumn(name = "workStation_id", nullable = false)
@@ -34,19 +31,13 @@ public class Reservations {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    public void setName(String name) {
-        this.name = name;
+    public Reservations(LocalDate reservationTime, WorkStation workStation, User user) {
+        this.reservationTime = reservationTime;
+        this.workStation = workStation;
+        this.user = user;
     }
 
-    public void setSurname(String surname) {
-        this.surname = surname;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setReservationTime(LocalTime reservationTime) {
+    public void setReservationTime(LocalDate reservationTime) {
         this.reservationTime = reservationTime;
     }
 

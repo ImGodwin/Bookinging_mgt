@@ -13,7 +13,6 @@ import java.util.List;
 @Getter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
 public class WorkStation {
 
     @Id
@@ -29,12 +28,15 @@ public class WorkStation {
     private List<Reservations> reservations;
 
     @ManyToOne
-    @JoinColumn(name = "building_id", nullable = false)
+    @JoinColumn(name = "building_id")
     private Building building;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    private User user;
+    public WorkStation(String description, Type type, long maxOccupants) {
+        this.description = description;
+        this.type = type;
+        this.maxOccupants = maxOccupants;
+
+    }
 
     public void setDescription(String description) {
         this.description = description;
@@ -56,7 +58,5 @@ public class WorkStation {
         this.building = building;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
+
 }

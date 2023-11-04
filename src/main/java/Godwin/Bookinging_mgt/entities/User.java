@@ -10,7 +10,6 @@ import java.util.Locale;
 @Entity
 @Table(name = "user")
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(builderClassName = "UserBuilder")
@@ -24,11 +23,9 @@ public class User {
     private String surname;
     private String email;
 
-    @OneToMany(mappedBy = "user")
+    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Reservations> reservations;
 
-    @OneToMany(mappedBy = "user")
-    private List<WorkStation> workStations;
 
     public static class UserBuilder{
         private Faker faker = new Faker(Locale.ITALY);
@@ -55,7 +52,5 @@ public class User {
         this.reservations = reservations;
     }
 
-    public void setWorkStations(List<WorkStation> workStations) {
-        this.workStations = workStations;
-    }
+
 }

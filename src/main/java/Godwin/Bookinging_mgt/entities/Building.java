@@ -12,7 +12,8 @@ import java.util.Locale;
 @Getter
 @ToString
 @NoArgsConstructor
-//@Builder(builderClassName = "BuildingBuilder")
+@AllArgsConstructor
+@Builder(builderClassName = "BuildingBuilder")
 public class Building {
 
     @Id
@@ -26,16 +27,20 @@ public class Building {
     @OneToMany(mappedBy = "building")
     private List<WorkStation> workStations;
 
+    public Building(String name, String address, String city, List<WorkStation> workStations) {
+        this.name = name;
+        this.address = address;
+        this.city = city;
+        this.workStations = workStations;
+    }
 
-
-
-    /*public static class BuildingBuilder{
+      public static class BuildingBuilder{
         private Faker faker = new Faker(Locale.ITALY);
         private String name = faker.name().firstName();
         private String address = faker.address().fullAddress();
         private String city = faker.address().city();
 
-    }*/
+    }
 
 
     public void setName(String name) {

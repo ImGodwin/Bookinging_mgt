@@ -19,8 +19,6 @@ public class BuildingService implements IBuildingDAO{
     public void save(Building building) {
 
         try {
-            if(building.getName().length() < 2) throw new RuntimeException("Il nome è troppo corto");
-            buildingRepo.save(building);
             buildingRepo.save(building);
             log.info(building + " saved successfully");
         } catch (Exception ex){
