@@ -39,17 +39,24 @@ public class Runner implements CommandLineRunner {
             // List<Reservations> reservations1 = Stream.of()
 
 
-            WorkStation workStation1 = new WorkStation("Finance", Type.MEETING_ROOM, 30);
+            //workStation
+            WorkStation workStation1 = new WorkStation("Games", Type.OPENSPACE, OfficeBookings.OCCUPIED, 19);
             //workStationDAO.save(workStation1);
 
 
-            User user_1 = userDAO.findById(4);
-            WorkStation workPost = workStationDAO.findById(5);
+            /*User user_1 = userDAO.findById(4);
+            WorkStation workPost = workStationDAO.findById(4)*/;
 
+            //reservation
             /*Reservations reservation1 = new Reservations(LocalDate.now(), workPost, user_1);
             reservationDAO.save(reservation1);*/
 
             // Building building = new Building("Bari", "Via fornari 2", "Bari", );
+
+
+
+
+
 
 
 

@@ -12,4 +12,5 @@ public class BookingingMgtApplication {
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<hello");
 	}
 
+
 }

@@ -22,6 +22,8 @@ public class WorkStation {
     private String description;
     @Enumerated(EnumType.STRING)
     private Type type;
+    @Enumerated(EnumType.STRING)
+    private OfficeBookings booking;
     private long maxOccupants;
 
     @OneToMany(mappedBy = "workStation")
@@ -31,11 +33,13 @@ public class WorkStation {
     @JoinColumn(name = "building_id")
     private Building building;
 
-    public WorkStation(String description, Type type, long maxOccupants) {
+    public WorkStation(String description, Type type, OfficeBookings booking, long maxOccupants) {
         this.description = description;
         this.type = type;
+        this.booking = booking;
         this.maxOccupants = maxOccupants;
-
+        this.reservations = reservations;
+        this.building = building;
     }
 
     public void setDescription(String description) {
