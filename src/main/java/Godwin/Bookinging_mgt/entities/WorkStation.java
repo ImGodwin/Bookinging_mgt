@@ -40,7 +40,7 @@ public class WorkStation {
         this.description = description;
     }
 
-    public void setType(Type type) {
+    public void setType() {
         this.type = type;
     }
 
