@@ -19,7 +19,7 @@ public class UsersService implements IUserDAO{
     public void save(User user) {
         if(user.getName().length() < 2 ) throw new RuntimeException("Name must be above 2 characters");
         usersRep.save(user);
-        System.out.println("User saved");
+        System.out.println(" saved");
     }
 
     @Override
