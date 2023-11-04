@@ -18,26 +18,42 @@ public class WorkStationService implements IWorkStationDAO{
     private IWorkStationRepository workRepo;
     @Override
     public void save(WorkStation workStation) {
+        try {
         workRepo.save(workStation);
         log.info(workStation + " saved successfully");
+        } catch (Exception ex){
+            System.out.println("Work Station not Saved");
+        }
     }
 
     @Override
     public void findByIdAndUpdate(long id, WorkStation workStation) {
-       WorkStation workStation1 = this.findById(id);
-        workStation1.setDescription(workStation1.getDescription());
-        workStation1.setType();
-        workStation1.setMaxOccupants(workStation1.getMaxOccupants());
-        workRepo.save(workStation1);
-        log.info("This building: " + workStation1 + "has been updated and saved");
+        WorkStation workStation1 = this.findById(id);
+        try {
+            workStation1.setDescription(workStation1.getDescription());
+            workStation1.setType();
+            workStation1.setMaxOccupants(workStation1.getMaxOccupants());
+            workRepo.save(workStation1);
+            log.info("This building: " + workStation1 + "has been updated and saved");
+        } catch (Exception ex){
+            System.err.println("Item was not found nor updated");
+        }
+
+
     }
 
     @Override
     public void findByIdAndDelete(long id) {
-        WorkStation workStation = this.findById(id);
-        workRepo.delete(workStation);
 
-        log.info(workStation + " deleted from the database");
+        try {
+            WorkStation workStation = this.findById(id);
+            workRepo.delete(workStation);
+
+            System.out.println(workStation + " deleted from the database");
+        }catch (Exception ex){
+            System.err.println("Item not deleted from the database");
+        }
+
     }
 
     @Override
