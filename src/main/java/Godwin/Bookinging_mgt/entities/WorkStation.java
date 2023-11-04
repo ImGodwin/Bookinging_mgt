@@ -29,11 +29,11 @@ public class WorkStation {
     private List<Reservations> reservations;
 
     @ManyToOne
-    @JoinColumn(name = "building_id")
+    @JoinColumn(name = "building_id", nullable = false)
     private Building building;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public void setDescription(String description) {

@@ -3,6 +3,7 @@ package Godwin.Bookinging_mgt.UserDao;
 import Godwin.Bookinging_mgt.entities.User;
 import lombok.extern.slf4j.Slf4j;
 import org.antlr.v4.runtime.atn.SemanticContext;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +24,7 @@ public class UsersService implements IUserDAO{
     }
 
     @Override
-    public void findByIdAndUpdate(long id, User user) {
+    public void findByIdAndUpdate(long id, @NotNull User user) {
         User found = this.findById(id);
         found.setName(user.getName());
         found.setSurname(user.getName());

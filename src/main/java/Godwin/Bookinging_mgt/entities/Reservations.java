@@ -27,11 +27,11 @@ public class Reservations {
     private LocalTime reservationTime;
 
     @ManyToOne
-    @JoinColumn(name = "workStation_id")
+    @JoinColumn(name = "workStation_id", nullable = false)
     private WorkStation workStation;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
     public void setName(String name) {

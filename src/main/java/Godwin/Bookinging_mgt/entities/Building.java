@@ -1,19 +1,18 @@
 package Godwin.Bookinging_mgt.entities;
 
+import com.github.javafaker.Faker;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import java.util.List;
+import java.util.Locale;
 
 @Entity
 @Table(name = "building")
 @Getter
 @ToString
 @NoArgsConstructor
-@AllArgsConstructor
+//@Builder(builderClassName = "BuildingBuilder")
 public class Building {
 
     @Id
@@ -26,6 +25,17 @@ public class Building {
 
     @OneToMany(mappedBy = "building")
     private List<WorkStation> workStations;
+
+
+
+
+    /*public static class BuildingBuilder{
+        private Faker faker = new Faker(Locale.ITALY);
+        private String name = faker.name().firstName();
+        private String address = faker.address().fullAddress();
+        private String city = faker.address().city();
+
+    }*/
 
 
     public void setName(String name) {

@@ -2,6 +2,7 @@ package Godwin.Bookinging_mgt.BuildingDAO;
 
 import Godwin.Bookinging_mgt.entities.Building;
 import lombok.extern.slf4j.Slf4j;
+import org.antlr.v4.runtime.misc.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,8 +17,13 @@ public class BuildingService implements IBuildingDAO{
     private BuildingRepository buildingRepo;
     @Override
     public void save(Building building) {
+
+        if(building.getName().length() < 2) throw new RuntimeException("Il nome è troppo corto");
+        buildingRepo.save(building);
         buildingRepo.save(building);
         log.info(building + " saved successfully");
+
+
     }
 
     @Override
