@@ -20,7 +20,7 @@ public class BuildingService implements IBuildingDAO{
 
         try {
             buildingRepo.save(building);
-            log.info(building + " saved successfully");
+            System.out.println(building + " saved successfully");
         } catch (Exception ex){
             System.err.println("Building not saved");
         }

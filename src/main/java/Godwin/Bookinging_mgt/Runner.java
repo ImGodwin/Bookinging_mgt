@@ -27,28 +27,32 @@ public class Runner implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         try {
+            //User
             User kade = User.builder().build();
             //userDAO.save(kade);
 
 
+            //Building
             Building building = Building.builder().build();
-            // buildingDAO.save(building);
+             //buildingDAO.save(building);
 
             // List<Reservations> reservations1 = Stream.of()
 
 
-            //WorkStation workStation1 = new WorkStation("The happy place", Type.MEETING_ROOM, 20);
+            WorkStation workStation1 = new WorkStation("Finance", Type.MEETING_ROOM, 30);
             //workStationDAO.save(workStation1);
 
 
-            //User u = userDAO.findById(1);
-            WorkStation worker2 = workStationDAO.findById(2);
+            User user_1 = userDAO.findById(4);
+            WorkStation workPost = workStationDAO.findById(5);
 
-            /*Reservations reservation1 = new Reservations(LocalDate.now(), workStation1, u);
+            /*Reservations reservation1 = new Reservations(LocalDate.now(), workPost, user_1);
             reservationDAO.save(reservation1);*/
 
-
             // Building building = new Building("Bari", "Via fornari 2", "Bari", );
+
+
+
         } catch (Exception ex){
             System.err.println(ex.getMessage());
         }

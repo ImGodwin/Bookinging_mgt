@@ -10,7 +10,6 @@ public class BookingingMgtApplication {
 		SpringApplication.run(BookingingMgtApplication.class, args);
 
 		System.out.println("<<<<<<<<<<<<<<<<<<<<<hello");
-
 	}
 
 }
