@@ -1,7 +1,6 @@
 package Godwin.Bookinging_mgt.WorkStationDAO;
 
-import Godwin.Bookinging_mgt.entities.Building;
-import Godwin.Bookinging_mgt.entities.Type;
+import Godwin.Bookinging_mgt.entities.OfficeBookings;
 import Godwin.Bookinging_mgt.entities.WorkStation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,4 +62,10 @@ public class WorkStationService implements IWorkStationDAO{
     public List<WorkStation> findAll() {
         return workRepo.findAll();
     }
+
+    @Override
+    public List<WorkStation> findByBookingEntry(String name) {
+        return workRepo.findByBooking(OfficeBookings.FREE);
+    }
+
 }

@@ -26,7 +26,7 @@ public class WorkStation {
     private OfficeBookings booking;
     private long maxOccupants;
 
-    @OneToMany(mappedBy = "workStation")
+    @OneToMany(mappedBy = "workStation", fetch = FetchType.EAGER)
     private List<Reservations> reservations;
 
     @ManyToOne
@@ -38,8 +38,7 @@ public class WorkStation {
         this.type = type;
         this.booking = booking;
         this.maxOccupants = maxOccupants;
-        this.reservations = reservations;
-        this.building = building;
+
     }
 
     public void setDescription(String description) {
