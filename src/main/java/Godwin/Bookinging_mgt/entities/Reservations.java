@@ -12,7 +12,6 @@ import java.time.LocalTime;
 @Entity
 @Table(name = "reservations")
 @Getter
-@ToString
 @NoArgsConstructor
 public class Reservations {
 

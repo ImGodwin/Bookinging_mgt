@@ -28,11 +28,37 @@ public class Runner implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
 
-       /* try {
-            workStationDAO.findByBookingEntry("FREE").forEach(spot -> System.out.println(spot.toString()));
+//User
+                User kade = User.builder().build();
+        //userDAO.save(kade);
+
+
+        //Building
+        Building building = Building.builder().build();
+        //buildingDAO.save(building);
+
+        // List<Reservations> reservations1 = Stream.of()
+
+
+        //workStation
+        WorkStation workStation1 = new WorkStation("Games", Type.OPENSPACE, OfficeBookings.OCCUPIED, 19);
+        //workStationDAO.save(workStation1);
+
+
+    User user_1 = userDAO.findById(4);
+    WorkStation workPost = workStationDAO.findById(1);
+
+        //reservation
+        /*Reservations reservation1 = new Reservations(LocalDate.now(), workPost, user_1);
+        reservationDAO.save(reservation1);*/
+
+        // Building building = new Building("Bari", "Via fornari 2", "Bari", ); -->
+
+        try {
+            System.out.println(workStationDAO.findByBookingEntry("FREE"));
         }catch (Exception ex){
             System.err.println(ex.getMessage());
-        }*/
+        }
 
        /* System.out.println("Want to make a WeWork? Click 1");
         Scanner input = new Scanner(System.in);
