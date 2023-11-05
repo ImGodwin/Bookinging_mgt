@@ -11,5 +11,6 @@ import java.util.List;
 @Repository
 public interface IWorkStationRepository extends JpaRepository<WorkStation, Long> {
 
-    List<WorkStation> findByBooking(@Param("FREE") OfficeBookings type);
+    //arguably my most difficult bug so far
+    List<WorkStation> findByBooking(@Param("type") OfficeBookings type);
 }
