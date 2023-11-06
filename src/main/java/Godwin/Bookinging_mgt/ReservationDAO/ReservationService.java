@@ -5,6 +5,7 @@ import Godwin.Bookinging_mgt.entities.WorkStation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
@@ -48,5 +49,10 @@ public class ReservationService implements IReservationDAO{
     @Override
     public List<Reservations> filterBySurname(String surname) {
         return null;
+    }
+
+    @Override
+    public Optional<Reservations> FindByReservationTimeAndWorkstationId(LocalDate reservationTime, Long id) {
+        return reservationREPO.ReservationTimeAndWorkstationId(reservationTime, id);
     }
 }

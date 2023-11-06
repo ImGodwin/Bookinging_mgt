@@ -11,6 +11,8 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.Scanner;
 
 @Component
@@ -27,6 +29,7 @@ public class Runner implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
+        Scanner input = new Scanner(System.in);
 
         try {
             System.out.println("<<<<<<<<<<<<<<here>>>>>>>>>>>>>>\n");
@@ -34,9 +37,25 @@ public class Runner implements CommandLineRunner {
             System.out.println("<<<<<<<<<<<<<<here>>>>>>>>>>>>>>\n");
 
             System.out.println("please add date: yy/mm/dd ");
-            Scanner input = new Scanner(System.in);
+
 
             workStationDAO.findByBookingEntry("FREE").forEach(spot -> System.out.println(spot.toString()));
+            System.out.println("type in the type of office from the list: 1. Open Space;  2. Private; 3. Meeting Room");
+            int office = Integer.parseInt(input.nextLine());
+            workStationDAO.findTypeOfOffice(office == 1 ? Type.OPENSPACE : office == 2 ? Type.PRIVATE : Type.MEETING_ROOM).forEach(selection -> System.out.println(selection.toString()));
+            System.out.println("please add date: yyyy/mm/dd ");
+            String date = input.nextLine();
+            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd");
+            System.out.println("add office ID");
+            long id = Long.parseLong(input.nextLine());
+            Optional<Reservations> r = reservationDAO.FindByReservationTimeAndWorkstationId(LocalDate.parse(date, formatter), id);
+            if (r.isEmpty()){
+                reservationDAO.save(new Reservations(LocalDate.parse(date, formatter), workStationDAO.findById(id), userDAO.findById(3)));
+                System.out.println("saved");
+            }
+            else {
+                System.out.println("date was taken");
+            }
         }catch (Exception ex){
             System.err.println(ex.getMessage());
         }
