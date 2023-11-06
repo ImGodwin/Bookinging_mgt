@@ -32,7 +32,7 @@ public class Runner implements CommandLineRunner {
         Scanner input = new Scanner(System.in);
 
         try {
-            System.out.println("<<<<<<<<<<<<<<here>>>>>>>>>>>>>>\n");
+          /*  System.out.println("<<<<<<<<<<<<<<here>>>>>>>>>>>>>>\n");
             System.out.println("Here are the offices available for rent \n");
             System.out.println("<<<<<<<<<<<<<<here>>>>>>>>>>>>>>\n");
 
@@ -55,7 +55,15 @@ public class Runner implements CommandLineRunner {
             }
             else {
                 System.out.println("date was taken");
-            }
+            }*/
+
+
+            System.out.println("type in the type of office from the list: 1. Open Space;  2. Private; 3. Meeting Room");
+            int station = Integer.parseInt(input.nextLine());
+            System.out.println("name of city");
+            String city = input.nextLine();
+            workStationDAO.findByTypeAndBuildingCity((station == 1 ? Type.OPENSPACE : station == 2 ?
+                    Type.PRIVATE : Type.MEETING_ROOM), city).forEach(selection -> System.out.println(selection.toString()));
         }catch (Exception ex){
             System.err.println(ex.getMessage());
         }

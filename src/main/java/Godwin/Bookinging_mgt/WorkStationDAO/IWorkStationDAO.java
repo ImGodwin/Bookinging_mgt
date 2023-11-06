@@ -15,4 +15,5 @@ public interface IWorkStationDAO {
     public List<WorkStation> findAll();
     public List<WorkStation> findByBookingEntry(String booking);
     public List<WorkStation> findTypeOfOffice(Type type);
+    List<WorkStation> findByTypeAndBuildingCity(Type type, String city);
 }

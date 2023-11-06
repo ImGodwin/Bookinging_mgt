@@ -74,5 +74,10 @@ public class WorkStationService implements IWorkStationDAO{
        return workRepo.findByTypeAndBooking(type, OfficeBookings.FREE);
     }
 
+    @Override
+    public List<WorkStation> findByTypeAndBuildingCity(Type type, String city) {
+        return workRepo.findByTypeAndBuildingCity(type, city);
+    }
+
 
 }

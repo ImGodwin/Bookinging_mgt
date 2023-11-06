@@ -16,4 +16,6 @@ public interface IWorkStationRepository extends JpaRepository<WorkStation, Long>
     List<WorkStation> findByBooking(OfficeBookings booking);
 
     List<WorkStation> findByTypeAndBooking(Type type, OfficeBookings booking);
+
+    List<WorkStation> findByTypeAndBuildingCity(Type type, String city);
 }

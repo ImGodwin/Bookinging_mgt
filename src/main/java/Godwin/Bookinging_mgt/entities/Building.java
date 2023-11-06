@@ -10,7 +10,6 @@ import java.util.Locale;
 @Entity
 @Table(name = "building")
 @Getter
-@ToString
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder(builderClassName = "BuildingBuilder")
@@ -24,7 +23,7 @@ public class Building {
     private String address;
     private String city;
 
-    @OneToMany(mappedBy = "building")
+    @OneToMany(mappedBy = "building", fetch = FetchType.EAGER)
     private List<WorkStation> workStations;
 
     public Building(String name, String address, String city, List<WorkStation> workStations) {
